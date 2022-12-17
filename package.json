@@ -1,0 +1,13 @@
+{
+  "name": "com.bearlabs.slyunitytools",
+  "version": "1.0.0",
+  "displayName": "Sly Unity Tools",
+  "description": "Basic Utility Scripts",
+  "unity": "2021.3",
+  "dependencies": { },
+ "keywords": [ ],
+  "author": {
+    "name": "Sylvain Guimond",
+    "email": "sylvain.d.guimond@gmail.com"
+  }
+}
