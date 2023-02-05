@@ -12,7 +12,7 @@ public class State : MonoBehaviour
     [SerializeField]
     private State _parent;
     [SerializeField]
-    private bool _default;
+    protected bool _default;
     [SerializeField]
     private GroupTypes _type;
     private bool _initialized;
@@ -89,6 +89,22 @@ public class State : MonoBehaviour
         foreach (var aState in _subStates)
         {
             aState.Active = false;
+        }
+    }
+
+    public void SetAsDefault()
+    {
+        if (_parent != null)
+        {
+            _parent.SetDefaultChild(this);
+        }
+    }
+
+    protected void SetDefaultChild(State aState)
+    {
+        foreach (var child in _subStates)
+        {
+            child._default = child == aState;
         }
     }
 }

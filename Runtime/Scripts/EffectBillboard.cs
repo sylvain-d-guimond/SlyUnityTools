@@ -9,6 +9,33 @@ public class EffectBillboard : MonoBehaviour
     public Transform PointA;
     public Transform PointB;
 
+    private void OnEnable()
+    {
+        FixedUpdate();
+
+        StartCoroutine(CoDelay());
+    }
+
+    private IEnumerator CoDelay()
+    {
+        yield return null;
+
+        SetChildrenEnabled(true);
+    }
+
+    private void OnDisable()
+    {
+        SetChildrenEnabled(false);
+    }
+
+    private void SetChildrenEnabled(bool enabled)
+    {
+        for (int i=0; i<transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(enabled);
+        }
+    }
+
     public void SetPointA(Transform t)
     {
         PointA = t;
@@ -30,7 +57,10 @@ public class EffectBillboard : MonoBehaviour
             transform.localScale = new Vector3(scale, scale, scale);
             var firstCross = Vector3.Cross(fingerSpan, Camera.main.transform.position - midpoint);
             var secondCross = Vector3.Cross(fingerSpan, firstCross);
-            transform.rotation = Quaternion.LookRotation(firstCross, secondCross);
+            if (firstCross != Vector3.zero && secondCross != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(firstCross, secondCross);
+            }
         }
     }
 }
