@@ -38,6 +38,7 @@ public class State : MonoBehaviour
                 }
                 else
                 {
+                    Deactivate();
                     OnDeactivate.Invoke();
                 }
 
