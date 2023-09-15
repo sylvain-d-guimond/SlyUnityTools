@@ -33,8 +33,6 @@ public class State : MonoBehaviour
                     OnActivate.Invoke();
                     if (_parent != null && _parent._type == GroupTypes.Single)
                         _parent.DeactivateOthers(this);
-
-                    ActivateDefault();
                 }
                 else
                 {
@@ -65,9 +63,10 @@ public class State : MonoBehaviour
 
     public void ActivateDefault()
     {
+        Active = _default;
         foreach (var child in _subStates)
         {
-            if (child._default) child.Active = true;
+            child.ActivateDefault();
         }
     }
 
@@ -107,6 +106,11 @@ public class State : MonoBehaviour
         {
             child._default = child == aState;
         }
+    }
+
+    public void Toggle()
+    {
+        Active = !Active;
     }
 }
 
