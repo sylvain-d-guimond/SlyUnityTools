@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -112,6 +114,12 @@ public class State : MonoBehaviour
     {
         Active = !Active;
     }
+
+    [Button("On")]
+    public void SetActive() { Active = true; }
+
+    [Button("Off")]
+    public void SetInactive() {  Active = false; }
 }
 
 public enum GroupTypes

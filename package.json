@@ -4,7 +4,9 @@
   "displayName": "Sly Unity Tools",
   "description": "Basic Utility Scripts",
   "unity": "2021.3",
-  "dependencies": { },
+  "dependencies": { 
+	"com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm"
+	},
  "keywords": [ ],
   "author": {
     "name": "Sylvain Guimond",

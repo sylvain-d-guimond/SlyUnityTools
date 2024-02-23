@@ -2,7 +2,8 @@
     "name": "Unity.SlyUnityTools",
     "rootNamespace": "",
     "references": [
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "NaughtyAttributes.Core"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
